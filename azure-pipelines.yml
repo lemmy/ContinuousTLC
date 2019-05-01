@@ -1,0 +1,21 @@
+jobs:
+
+- job: Linux
+  timeoutInMinutes: 0
+
+  pool:
+    vmImage: 'Ubuntu-18.04'
+
+  steps:
+  - script: wget https://nightly.tlapl.us/dist/tla2tools.jar
+    displayName: Get (nightly) TLC
+  - script: |
+      set MYVAR=foo
+      set
+    displayName: Set a variable and then display all
+    env:
+      aVarFromYaml: someValue
+  - script: java -version
+    workingDirectory: $(Agent.BuildDirectory)
+    displayName: Run TLC
+
