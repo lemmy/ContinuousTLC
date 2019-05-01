@@ -7,6 +7,12 @@ jobs:
     vmImage: 'Ubuntu-16.04'
 
   steps:
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: '11' 
+      jdkArchitectureOption: x64
+      jdkSourceOption: LocalDirectory
+      jdkDestinationDirectory: 
   - script: wget https://nightly.tlapl.us/dist/tla2tools.jar
     displayName: Get (nightly) TLC
   - script: |
