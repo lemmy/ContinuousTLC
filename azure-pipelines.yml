@@ -7,13 +7,6 @@ jobs:
     vmImage: 'Ubuntu-16.04'
 
   steps:
-  - task: Ant@1
-    inputs:
-      buildFile: 'build.xml'
-      options: 
-      publishJUnitResults: false
-      javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.11'
   - script: wget https://nightly.tlapl.us/dist/tla2tools.jar
     displayName: Get (nightly) TLC
   - script: |
@@ -22,7 +15,5 @@ jobs:
     displayName: Set a variable and then display all
     env:
       aVarFromYaml: someValue
-  - script: java -version
-    workingDirectory: $(Agent.BuildDirectory)
+  - script: java -Dtlc2.TLC.stopAfter=60 -jar tla2tools.jar model/MC.tla
     displayName: Run TLC
-

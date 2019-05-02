@@ -1,6 +1,0 @@
-<project default="main">
-
-    <target name="main">
-        <echo message="Pulling Java 11 in"/>
-    </target>
-</project>
