@@ -15,6 +15,5 @@ jobs:
     displayName: Set a variable and then display all
     env:
       aVarFromYaml: someValue
-  - script: java -Dtlc2.TLC.stopAfter=60 -jar ../tla2tools.jar MC.tla
-    workingDirectory: $(Agent.BuildDirectory)/model/
+  - script: java -Dtlc2.TLC.stopAfter=60 -jar tla2tools.jar MC.tla
     displayName: Run TLC
