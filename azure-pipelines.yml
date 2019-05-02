@@ -7,6 +7,13 @@ jobs:
     vmImage: 'Ubuntu-16.04'
 
   steps:
+  - task: Ant@1
+    inputs:
+      buildFile: 'build.xml'
+      options: 
+      publishJUnitResults: false
+      javaHomeOption: 'JDKVersion'
+      jdkVersionOption: '1.11'
   - task: JavaToolInstaller@0
     inputs:
       versionSpec: '11' 
